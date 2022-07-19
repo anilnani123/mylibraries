@@ -16,6 +16,11 @@ def runSelenium(jobname)
 {
   sh "java -jar /home/ubuntu/.jenkins/workspace/${jobname}/testing.jar"
 }
+
+def newDeploy(jobname,ip,context)
+{
+  deploy adapters: [tomcat9(credentialsId: '0f783f78-088a-4576-a3be-24a2481b65dd', path: '', url: 'http://172.31.0.167:8080')], contextPath: 'prodapp', war: '**/*.war'
+}         
   
   
   
